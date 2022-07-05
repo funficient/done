@@ -137,14 +137,14 @@ form {
   
 }
 
-.btn.list {
+.btn.create {
   font-size: 1.6rem;
   font-weight: 800;
   margin-right: 0.25em;
   transition: opacity 150ms ease-in;
 }
 
-.btn.list:hover {
+.btn.create:hover {
   opacity: 0.7;
 
 }
