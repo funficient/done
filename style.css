@@ -28,6 +28,7 @@ body {
   background-color: #fc9745;
   color: var(--lightGray);
   display: grid;
+  
   grid: 
     "header header header header" auto
     "...... lists  active ......" auto /
@@ -78,10 +79,12 @@ button {
   padding: 2rem 1rem;
   font-weight: 900;
   font-size: calc(7vw + 2rem);
+  
 }
 
 .all-tasks {
   grid-area: lists;
+  
 
 }
 
@@ -89,15 +92,19 @@ button {
   line-height: 1.8rem;
   list-style: circle;
   margin-left: 1em;
+  
 }
 
 .active-list {
   font-weight: 700;
 }
 
-.todo-list {
-  grid-area: active;
+.list-name {
+  cursor: pointer;
+}
 
+.list-name:hover {
+  opacity: 0.8;
 }
 
 .new {
@@ -147,4 +154,34 @@ form {
 .btn.create:hover {
   opacity: 0.7;
 
+}
+
+.todo-list {
+  --spacer: 2rem;
+  grid-area: active;
+  background: #eee9dd;
+  color: #5d5c5c;
+
+}
+
+.todo-header {
+  background: #d8d4c9;
+  padding: var(--spacer);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 1em;
+}
+
+.list-title {
+  margin: 0;
+}
+
+.task-count {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.todo-body {
+  padding: var(--spacer);
 }
