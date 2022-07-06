@@ -196,6 +196,7 @@ form {
   align-items: center;
   position: relative;
   margin-bottom: 1.5em;
+  cursor: pointer;
 }
 
 .task label::after {
@@ -219,4 +220,18 @@ form {
   border: 1px solid currentColor;
   border-radius: 50%;
   margin-right: var(--size);
+  transform: scale(1);
+  transition: transform 150ms ease-in-out;
+}
+
+.task:hover .custom-checkbox,
+[type="checkbox"]:focus + label .custom-checkbox {
+  transform: scale(1.1);
+  border: 2px solid var(--orange);
+}
+
+[type="checkbox"]:checked + label .custom-checkbox {
+  background: var(--orange);
+  box-shadow: inset 0 0 0 1px #fff;
+  border: 2px solid var(--orange);
 }
