@@ -33,21 +33,17 @@ body {
     "header header header header" auto
     "...... lists  active ......" auto /
     1fr minmax(100px, 300px) minmax(250px, 500px) 1fr;
+
+  grid-gap: 1rem;
 }
 
-h1 {
-  font-family: "Martel", sans-serif;
-  line-height: 1.3em;
-}
-
-h2 {
-  font-family: "Martel", sans-serif;
+h1, h2 {
+  font-family: "Martel", sans-serif;  
 }
 
 h3 {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
-  
 }
 
 h4 {
@@ -64,8 +60,7 @@ li,
 a,
 button {
   font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  
+  font-weight: 400;
 }
 
 
@@ -84,19 +79,23 @@ button {
 
 .all-tasks {
   grid-area: lists;
-  
+}
 
+.task-list-title {
+  font-size: 2rem;
 }
 
 .task-list {
   line-height: 1.8rem;
   list-style: circle;
   margin-left: 1em;
+  color: #e0e0df;
   
 }
 
 .active-list {
   font-weight: 700;
+  color: #fff;
 }
 
 .list-name {
@@ -105,6 +104,7 @@ button {
 
 .list-name:hover {
   opacity: 0.8;
+  color: #fff;
 }
 
 .new {
