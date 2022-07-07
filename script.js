@@ -9,6 +9,7 @@ const tasksContainer = document.querySelector("[data-tasks]")
 const taskTemplate = document.getElementById("task-template")
 const newTaskForm = document.querySelector("[data-new-task-form]")
 const newTaskInput = document.querySelector("[data-new-task-input]")
+const clearCompleteTasksButton = document.querySelector("[data-clear-complete-tasks-button]")
 
 const LOCAL_STORAGE_LIST_KEY = 'task.lists'
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = 'task.selectedListId'
@@ -30,6 +31,12 @@ tasksContainer.addEventListener('click', e => {
         save()
         renderTaskCount(selectedList)
     }
+})
+
+clearCompleteTasksButton.addEventListener('click', e => {
+    const selectedList = lists.find(list => list.id === selectedListId)
+    selectedList.tasks = selectedList.tasks.filter(task => !task.complete)
+    saveAndRender()
 })
 
 deleteListButton.addEventListener('click', e => {
@@ -81,8 +88,7 @@ function render() {
     clearElement(listsContainer) 
     renderLists()
 
-    const selectedList = lists.find(list => list.id == selectedListId )
-
+    const selectedList = lists.find(list => list.id == selectedListId)
     if (selectedListId == null) {
         listDisplayContainer.style.display = 'none'
     } else {
@@ -119,16 +125,17 @@ function renderLists() {
         listElement.dataset.listId = list.id
         listElement.classList.add("list-name")
         listElement.innerText = list.name
-        if (list.id === selectedListId) {listElement.classList.add("active-list")}
+        if (list.id === selectedListId) {
+            listElement.classList.add("active-list")
+            }
         listsContainer.appendChild(listElement)
     })
-
 }
+
 function clearElement(element) {
     while (element.firstChild) {
         element.removeChild(element.firstChild)
     }
-
 }
 
 render()
